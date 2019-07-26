@@ -45,7 +45,7 @@ int main(int argc, const char * argv[]) {
                     searchToRange = [method rangeOfString:@";"];
                 }
                 NSString *methodName = [method substringWithRange:NSMakeRange(searchFromRange.location+searchFromRange.length, searchToRange.location-searchFromRange.location-searchFromRange.length)];
-                NSString *newMethod = [method stringByReplacingOccurrencesOfString:@";" withString:[NSString stringWithFormat:@"{\n    NSLog(\"NSLOGIFY: METHOD %@ CALLED\");\n    %%orig;\n}", methodName]];
+                NSString *newMethod = [method stringByReplacingOccurrencesOfString:@";" withString:[NSString stringWithFormat:@"{\n    NSLog(@\"NSLOGIFY: METHOD %@ CALLED\");\n    %%orig;\n}", methodName]];
                 [parsedMethods addObject:newMethod];
             } else {
                 NSString *method = [methodUnparsed stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -58,7 +58,7 @@ int main(int argc, const char * argv[]) {
                         searchToRange = [method rangeOfString:@";"];
                     }
                     NSString *methodName = [method substringWithRange:NSMakeRange(searchFromRange.location+searchFromRange.length, searchToRange.location-searchFromRange.location-searchFromRange.length)];
-                    NSString *newMethod = [method stringByReplacingOccurrencesOfString:@";" withString:[NSString stringWithFormat:@"{\n    NSLog(\"NSLOGIFY: METHOD %@ CALLED\");\n    return %%orig;\n}", methodName]];
+                    NSString *newMethod = [method stringByReplacingOccurrencesOfString:@";" withString:[NSString stringWithFormat:@"{\n    NSLog(@\"NSLOGIFY: METHOD %@ CALLED\");\n    return %%orig;\n}", methodName]];
                     [parsedMethods addObject:newMethod];
                 }
             }
