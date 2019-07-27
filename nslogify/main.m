@@ -65,7 +65,7 @@ int main(int argc, const char * argv[]) {
         }
         NSString *parsedMethodsString = [parsedMethods componentsJoinedByString:[NSString stringWithFormat:@"\n"]];
         NSString *new = [NSString stringWithFormat:@"%%hook %@\n\n%@\n\n%%end\n", className, parsedMethodsString];
-        [new writeToFile:[[[NSFileManager defaultManager] currentDirectoryPath] stringByAppendingPathComponent:@"nslogify.m"] atomically:TRUE encoding:NSUTF8StringEncoding error:nil];
+        [new writeToFile:[[[NSFileManager defaultManager] currentDirectoryPath] stringByAppendingPathComponent:@"nslogify.x"] atomically:TRUE encoding:NSUTF8StringEncoding error:nil];
     }
     return 0;
 }
