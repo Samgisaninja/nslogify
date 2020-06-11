@@ -64,7 +64,7 @@ int main(int argc, const char * argv[]) {
             }
         }
         NSString *parsedMethodsString = [parsedMethods componentsJoinedByString:[NSString stringWithFormat:@"\n"]];
-        NSString *new = [NSString stringWithFormat:@"%%hook %@\n\n%@\n\n%%end\n", className, parsedMethodsString];
+        NSString *new = [[[[[[[[[[[[[NSString stringWithFormat:@"%%hook %@\n\n%@\n\n%%end\n", className, parsedMethodsString] stringByReplacingOccurancesOfString:@"unsignedlong" withString:@"unsigned long"] stringByReplacingOccurancesOfString:@"longlong" withString:@"long long"] stringByReplacingOccurancesOfString:@"arg10" withString:@"arg10 "] stringByReplacingOccurancesOfString:@"arg9" withString:@"arg9 "] stringByReplacingOccurancesOfString:@"arg8" withString:@"arg8 "] stringByReplacingOccurancesOfString:@"arg7" withString:@"arg7 "]  stringByReplacingOccurancesOfString:@"arg6" withString:@"arg6 "] stringByReplacingOccurancesOfString:@"arg5" withString:@"arg5 "] stringByReplacingOccurancesOfString:@"arg4" withString:@"arg4 "] stringByReplacingOccurancesOfString:@"arg3" withString:@"arg3 "] stringByReplacingOccurancesOfString:@"arg2" withString:@"arg2 "] stringByReplacingOccurancesOfString:@"arg1" withString:@"arg1 "];
         [new writeToFile:[[[NSFileManager defaultManager] currentDirectoryPath] stringByAppendingPathComponent:@"nslogify.x"] atomically:TRUE encoding:NSUTF8StringEncoding error:nil];
     }
     return 0;
